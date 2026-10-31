@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lost &amp; Found Desk</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="login">
+  <div class="hero">
+    <span class="tag t1">Black wallet</span><span class="tag t2">Black Bag</span>
+    <span class="tag t3">Red backpack</span><span class="tag t4">Silver keys</span>
+    <h1>Lost something? Let’s match it.</h1>
+    <p>Log in to the desk, record what was found or lost, and see matches instantly.</p>
+  </div>
+  <div class="formside">
+    <div class="panel" id="loginPanel">
+      <h2>Staff login</h2>
+      <p class="sub">Sign in to open the Lost &amp; Found desk.</p>
+      <label for="u">Username</label><input id="u" autocomplete="username" placeholder="admin">
+      <label for="p">Password</label><input id="p" type="password" autocomplete="current-password" placeholder="Password">
+      <div class="err" id="err" role="alert"></div>
+      <button class="btn" id="loginBtn">Log in</button>
+      <p class="hint">Demo login: <b>admin</b> / <b>lostfound123</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="app" class="hidden">
+  <header>
+    <h3>Lost &amp; Found Desk</h3>
+    <div class="who"><span id="hello"></span><button class="link" id="logout">Log out</button></div>
+  </header>
+  <main>
+    <div class="stats">
+      <div class="stat"><b id="cF">0</b><span>Found items</span></div>
+      <div class="stat"><b id="cL">0</b><span>Lost reports</span></div>
+      <div class="stat"><b id="cM">0</b><span>Matches</span></div>
+    </div>
+
+    <div class="forms">
+      <div class="card" style="animation-delay:.05s">
+        <h2>Add found item</h2><p class="sub">Someone handed something in.</p>
+        <form id="ff" autocomplete="off">
+          <label>Item name</label><input name="item" required placeholder="Wallet">
+          <div class="two"><div><label>Color</label><input name="color" required placeholder="Black"></div>
+          <div><label>Found where?</label><input name="location" required placeholder="Library"></div></div>
+          <div class="two"><div><label>Finder name</label><input name="who" required placeholder="Sara"></div>
+          <div><label>Finder phone</label><input name="phone" required inputmode="tel" placeholder="0300…"></div></div>
+          <button class="btn found" type="submit">Add found item</button>
+        </form>
+        <div class="list" id="fl"></div>
+      </div>
+      <div class="card lostc" style="animation-delay:.15s">
+        <h2>Report lost item</h2><p class="sub">Someone is looking for something.</p>
+        <form id="lf" autocomplete="off">
+          <label>Item name</label><input name="item" required placeholder="Wallet">
+          <div class="two"><div><label>Color</label><input name="color" required placeholder="Black"></div>
+          <div><label>Lost where?</label><input name="location" required placeholder="Cafeteria"></div></div>
+          <div class="two"><div><label>Owner name</label><input name="who" required placeholder="Ali"></div>
+          <div><label>Owner phone</label><input name="phone" required inputmode="tel" placeholder="0321…"></div></div>
+          <button class="btn lost" type="submit">Report lost item</button>
+        </form>
+        <div class="list" id="ll"></div>
+      </div>
+    </div>
+
+    <div class="results">
+      <h2>Matching results</h2>
+      <div id="res"><div class="empty">Add a found item and a lost report. A match needs the same item and color.</div></div>
+    </div>
+  </main>
+</section>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
